@@ -1,0 +1,6 @@
+framework module TableauxUI {
+  umbrella header "TableauxUI-umbrella.h"
+
+  export *
+  module * { export * }
+}

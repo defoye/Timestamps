@@ -1,0 +1,16 @@
+PODS:
+  - TableauxUI (0.0.2)
+
+DEPENDENCIES:
+  - TableauxUI
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - TableauxUI
+
+SPEC CHECKSUMS:
+  TableauxUI: 893e86859ccc2b6d405abf1972c16808575d1f00
+
+PODFILE CHECKSUM: 190fc9df0d8eb2dfa60f60eda241461f06e5b2c1
+
+COCOAPODS: 1.7.5

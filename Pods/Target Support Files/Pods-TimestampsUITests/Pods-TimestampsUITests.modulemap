@@ -1,0 +1,6 @@
+framework module Pods_TimestampsUITests {
+  umbrella header "Pods-TimestampsUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
