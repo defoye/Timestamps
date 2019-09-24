@@ -10,6 +10,10 @@ import TableauxUI
 
 public struct TimestampCellViewData: TableauDataAdapter, TableauDataAdapter2 {
 	public var constantHeight: Float? = 175
-	
 	public var identifier: String = TimestampCell.reuseIdentifier
+	public let timestamp: Timestamp
+	
+	public init(timestamp: Timestamp) {
+		self.timestamp = timestamp
+	}
 }

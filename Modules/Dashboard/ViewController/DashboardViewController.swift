@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DashboardViewController.swift
 //  Timestamps
 //
 //  Created by Ernest DeFoy on 8/4/19.
@@ -8,33 +8,13 @@
 
 import TableauxUI
 
-public class RedCell: UITableViewCell {
+public class DashboardViewController: UIViewController {
 	
-}
-
-extension RedCell: TableauCellProtocol {
-	public func configure<T>(data: T) {
-		self.backgroundColor = .red
-	}
-}
-
-public struct RedCellData: TableauDataAdapter {
-	public var constantHeight: Float? {
-		return nil
-	}
-	
-	public var identifier: String {
-		return RedCell.reuseIdentifier
-	}
-}
-
-public class ViewController: UIViewController {
-	
-	let viewAdapter: ViewAdapter
+	let viewAdapter: DashboardViewAdapter
 	let port: TableauxPort
 	let tableView: UITableView
 	
-	public init(viewAdapter: ViewAdapter) {
+	public init(viewAdapter: DashboardViewAdapter) {
 		self.viewAdapter = viewAdapter
 		self.tableView = UITableView(frame: .zero, style: .grouped)
 		self.port = TableauxPort(tableau: viewAdapter.tableau, tableView: self.tableView)
@@ -42,7 +22,6 @@ public class ViewController: UIViewController {
 		
 		self.tableView.register(RedCell.self, forCellReuseIdentifier: RedCell.reuseIdentifier)
 		self.tableView.register(TimestampCell.self, forCellReuseIdentifier: TimestampCell.reuseIdentifier)
-	
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -52,6 +31,8 @@ public class ViewController: UIViewController {
 	override public func viewDidLoad() {
 		super.viewDidLoad()
 		self.view = tableView
+		
+		viewAdapter.buildTimestampSection()
 	}
 
 

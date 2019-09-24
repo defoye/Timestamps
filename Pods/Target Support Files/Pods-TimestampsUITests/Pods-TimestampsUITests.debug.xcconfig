@@ -1,7 +1,7 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/TableauxUI"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CoreDataTools" "${PODS_CONFIGURATION_BUILD_DIR}/TableauxUI"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/TableauxUI/TableauxUI.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "TableauxUI"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CoreDataTools/CoreDataTools.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/TableauxUI/TableauxUI.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "CoreDataTools" -framework "TableauxUI"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

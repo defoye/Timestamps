@@ -7,6 +7,7 @@ target 'Timestamps' do
 
   # Pods for Timestamps
   pod 'TableauxUI'
+  pod 'CoreDataTools', '~> 0.0.5'
 
   target 'TimestampsTests' do
     inherit! :search_paths

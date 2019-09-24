@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-Timestamps/Pods-Timestamps-frameworks.sh
+${BUILT_PRODUCTS_DIR}/CoreDataTools/CoreDataTools.framework
 ${BUILT_PRODUCTS_DIR}/TableauxUI/TableauxUI.framework
