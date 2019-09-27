@@ -16,4 +16,16 @@ public struct TimestampCellViewData: TableauDataAdapter, TableauDataAdapter2 {
 	public init(timestamp: Timestamp) {
 		self.timestamp = timestamp
 	}
+	
+	public func daysSince() -> Int? {
+		let calendar = Calendar.current
+		
+		// Replace the hour (time) of both dates with 00:00
+		let date1 = calendar.startOfDay(for: timestamp.date ?? Date())
+		let date2 = calendar.startOfDay(for: Date())
+		
+		let components = calendar.dateComponents([.day], from: date1, to: date2)
+		
+		return components.day ?? nil
+	}
 }
