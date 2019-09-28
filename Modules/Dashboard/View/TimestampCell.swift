@@ -12,6 +12,7 @@ public class TimestampCell: UITableViewCell {
 	
 	let dayTextView = UITextView.constructDefaultTextView()
 	let titleTextView = UITextView.constructDefaultTextView()
+	let daysSinceTextView = UITextView.constructDefaultTextView()
 	
 	public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -38,9 +39,10 @@ extension TimestampCell: TableauCellProtocol {
 		if let title = viewData.timestamp.title {
 			configureTitleTextView(title: title)
 		}
-		if let date = viewData.timestamp.date {
-			configureDateTextView(date: date)
+		if let days = viewData.daysSince() {
+			configureDateTextView(days: days)
 		}
+		configureDaysSinceTextView()
 	}
 }
 
@@ -51,6 +53,7 @@ extension TimestampCell {
 	private func addSubviews() {
 		self.contentView.addSubview(dayTextView)
 		self.contentView.addSubview(titleTextView)
+		self.contentView.addSubview(daysSinceTextView)
 	}
 	
 	private func setupConstraints() {
@@ -58,29 +61,46 @@ extension TimestampCell {
 		// dayTextView constraints.
 		dayTextView.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate(
-			[dayTextView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
-			 dayTextView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 10),
-			 dayTextView.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.90),
-			 dayTextView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: 0.25)]
+			[dayTextView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
+			 dayTextView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: 10)]
+		)
+		
+		// daysSinceTextView constraints.
+		daysSinceTextView.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate(
+			[daysSinceTextView.topAnchor.constraint(equalTo: self.dayTextView.bottomAnchor, constant: 10),
+			 daysSinceTextView.leftAnchor.constraint(equalTo: self.dayTextView.leftAnchor),
+			 daysSinceTextView.rightAnchor.constraint(equalTo: self.dayTextView.rightAnchor)]
 		)
 		
 		// titleTextView constraints.
 		titleTextView.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate(
-			[titleTextView.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor),
+			[titleTextView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
 			 titleTextView.leftAnchor.constraint(equalTo: self.dayTextView.rightAnchor, constant: 10),
-			 titleTextView.heightAnchor.constraint(equalTo: self.contentView.heightAnchor, multiplier: 0.90),
+			 titleTextView.bottomAnchor.constraint(equalTo: self.dayTextView.bottomAnchor),
 			 titleTextView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -10)]
 		)
 	}
 	
-	private func configureDateTextView(date: Date) {
+	private func configureDateTextView(days: Int) {
+		let fixedWidth = dayTextView.frame.size.width
+		let newSize = dayTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+		dayTextView.frame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
 		dayTextView.backgroundColor = .white
-		dayTextView.font = UIFont.systemFont(ofSize: 18)
+		dayTextView.font = UIFont.systemFont(ofSize: 74)
 		dayTextView.textAlignment = .center
-		let dateFormatter = DateFormatter()
-		dateFormatter.dateFormat = "MMM dd,yyyy"
-		dayTextView.text = "\n" + dateFormatter.string(from: date)
+		dayTextView.text = String(days)
+	}
+	
+	private func configureDaysSinceTextView() {
+		let fixedWidth = daysSinceTextView.frame.size.width
+		let newSize = daysSinceTextView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+		daysSinceTextView.frame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+		daysSinceTextView.backgroundColor = .white
+		daysSinceTextView.font = UIFont.systemFont(ofSize: 14)
+		daysSinceTextView.textAlignment = .center
+		daysSinceTextView.text = "Days since"
 	}
 	
 	private func configureTitleTextView(title: String) {

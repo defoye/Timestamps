@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1A23DB46FD5EA3699C930FFF /* Pods_Timestamps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 195A554280BB286335314CE8 /* Pods_Timestamps.framework */; };
 		53128C692301394600B3637A /* DashboardDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53128C682301394600B3637A /* DashboardDataManager.swift */; };
+		5323E29C233E84C800E2C86F /* TimestampViewDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323E29B233E84C800E2C86F /* TimestampViewDataTests.swift */; };
+		5323E29E233FB2D300E2C86F /* Date+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323E29D233FB2D300E2C86F /* Date+Helpers.swift */; };
 		5335435522F769FE005E136D /* TimestampCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335435422F769FE005E136D /* TimestampCell.swift */; };
 		5335435822F76A91005E136D /* UITextView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335435722F76A91005E136D /* UITextView+Helpers.swift */; };
 		5335435A22F76ABE005E136D /* TimestampCellViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335435922F76ABE005E136D /* TimestampCellViewData.swift */; };
@@ -50,6 +52,8 @@
 		271A42674FF9FBA7193A3783 /* Pods_TimestampsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimestampsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CBE9D8D22B7C1BD768AC3A9 /* Pods-TimestampsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimestampsTests.release.xcconfig"; path = "Target Support Files/Pods-TimestampsTests/Pods-TimestampsTests.release.xcconfig"; sourceTree = "<group>"; };
 		53128C682301394600B3637A /* DashboardDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardDataManager.swift; sourceTree = "<group>"; };
+		5323E29B233E84C800E2C86F /* TimestampViewDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampViewDataTests.swift; sourceTree = "<group>"; };
+		5323E29D233FB2D300E2C86F /* Date+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helpers.swift"; sourceTree = "<group>"; };
 		5335435422F769FE005E136D /* TimestampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampCell.swift; sourceTree = "<group>"; };
 		5335435722F76A91005E136D /* UITextView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Helpers.swift"; sourceTree = "<group>"; };
 		5335435922F76ABE005E136D /* TimestampCellViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimestampCellViewData.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				5335435722F76A91005E136D /* UITextView+Helpers.swift */,
+				5323E29D233FB2D300E2C86F /* Date+Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,6 +227,7 @@
 			children = (
 				53B02C5E22F7595000434D6D /* TimestampsTests.swift */,
 				53B02C6022F7595000434D6D /* Info.plist */,
+				5323E29B233E84C800E2C86F /* TimestampViewDataTests.swift */,
 			);
 			path = TimestampsTests;
 			sourceTree = "<group>";
@@ -496,6 +502,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				53B02C5F22F7595000434D6D /* TimestampsTests.swift in Sources */,
+				5323E29E233FB2D300E2C86F /* Date+Helpers.swift in Sources */,
+				5323E29C233E84C800E2C86F /* TimestampViewDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

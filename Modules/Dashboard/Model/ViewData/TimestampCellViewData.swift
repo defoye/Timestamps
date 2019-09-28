@@ -29,3 +29,17 @@ public struct TimestampCellViewData: TableauDataAdapter, TableauDataAdapter2 {
 		return components.day ?? nil
 	}
 }
+
+extension Calendar {
+	static func daysInBetween(dateS: Date, dateT: Date) -> Int {
+		let calendar = Calendar.current
+		
+		// Replace the hour (time) of both dates with 00:00
+		let date1 = calendar.startOfDay(for: dateS)
+		let date2 = calendar.startOfDay(for: dateT)
+		
+		let components = calendar.dateComponents([.day], from: date1, to: date2)
+		
+		return components.day ?? -1
+	}
+}
